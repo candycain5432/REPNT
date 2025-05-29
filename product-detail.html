@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">REPNT Clothing</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="cart.html" id="cart-icon">🛒 Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="product-details" class="product-detail">
+            <div class="product-image">
+                <img src="" alt="Product Image" id="main-image">
+                <div class="small-images">
+                    <img src="" alt="Small Image 1" class="small-image" onclick="changeImage(this)">
+                    <img src="" alt="Small Image 2" class="small-image" onclick="changeImage(this)">
+                    <img src="" alt="Small Image 3" class="small-image" onclick="changeImage(this)">
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 id="product-name">Product Name</h3>
+                <p id="product-price">$0.00</p>
+                <label for="quantity">Quantity: </label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="product-detail.js"></script>
+</body>
+</html>
+
+<script>document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    const productData = {
+        1: { name: 'The Shirt', price: 25, images: ['https://i.postimg.cc/8c0KT3yL/Zpacks-Trail-Cool-Merino-Wool-T-Shirt-01-2048x.webp','https://i.postimg.cc/XNZcBx0t/download.png'] },
+        2: { name: 'Shorts', price: 18, images: ['https://i.postimg.cc/j2mXpf5X/KIC-128-4051-0010-913-prod1.avif', 'https://i.postimg.cc/XNZcBx0t/download.png'] },
+        3: { name: 'Jacket', price: 45, images: ['https://i.postimg.cc/ZKWswbRH/MC20113-BLK-web-DSC-7920.webp', 'https://i.postimg.cc/XNZcBx0t/download.png'] },
+        4: { name: 'More Shirt', price: 55, images: ['https://i.postimg.cc/L6GC7cgp/76020-EBR.jpg', 'https://i.postimg.cc/XNZcBx0t/download.png', 'https://i.postimg.cc/XNZcBx0t/download.png'] }
+    };
+
+    const product = productData[productId];
+
+    // Set product info on the page
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-price').textContent = `$${product.price}`;
+    document.getElementById('main-image').src = product.images[0];
+
+    // Set small images
+    const smallImages = document.querySelectorAll('.small-image');
+    smallImages.forEach((image, index) => {
+        image.src = product.images[index] || '';
+    });
+
+    // Add to Cart functionality
+    document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const cartItem = {
+            name: product.name,
+            price: product.price,
+            image: product.images[0],
+            quantity: quantity
+        };
+
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Check if the item already exists in the cart
+        const existingItem = cartItems.find(item => item.name === product.name);
+        if (existingItem) {
+            existingItem.quantity += quantity; // Increase quantity if item exists
+        } else {
+            cartItems.push(cartItem); // Add new item to cart
+        }
+
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        alert("Item added to cart!");
+    });
+});
+
+// Change the main image when clicking on a smaller image
+function changeImage(image) {
+    document.getElementById('main-image').src = image.src;
+}
+</script>
