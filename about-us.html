@@ -18,7 +18,22 @@
                 <li><a href="cart.html">Cart</a></li>
             </ul>
         </nav>
+        <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
     </header>
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">X</button> <!-- Close Button -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cart.html" id="cart-icon">🛒 Cart</a></li>
+            <li><a href="#">Shirts</a></li>
+            <li><a href="#">Shorts</a></li>
+            <li><a href="#">Outerwear</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="#">Support</a></li>
+            
+
+        </ul>
+    </div>
 
     <main>
         <section class="about">
@@ -33,3 +48,23 @@
 
 </body>
 </html>
+
+<script>
+    // Sidebar toggle functionality
+    const moreBtn = document.getElementById("more-btn");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("close-btn");
+
+    moreBtn.addEventListener("click", () => {
+        sidebar.style.width = "250px";  // Open sidebar
+    });
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.style.width = "0";  // Close sidebar
+    });
+
+    function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("active");
+}
+</script>

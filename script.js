@@ -46,3 +46,16 @@ function updateCartCount() {
 document.addEventListener("DOMContentLoaded", () => {
     updateCartCount();
 });
+
+
+const moreBtn = document.getElementById('more-btn');
+const sidebar = document.getElementById('sidebar');
+const closeBtn = document.getElementById('close-btn');
+
+moreBtn.addEventListener('click', () => {
+  sidebar.classList.add('active');
+});
+
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+});
