@@ -1,102 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart</title>
-  <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">REPNT. Clothing</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="cart.html" id="cart-icon">Cart</a></li>
-      </ul>
-    </nav>
-    <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
-  </header>
+    <header>
+        <div class="logo">REPNT Clothing</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html" id="cart-icon">Cart</a></li>
+            </ul>
+        </nav>
+        <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
+    </header>
 
-  <div id="sidebar" class="sidebar">
-    <button class="close-btn" onclick="toggleSidebar()">X</button>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="cart.html" id="cart-icon">🛒 Cart</a></li>
-      <li><a href="#">Shirts</a></li>
-      <li><a href="#">Shorts</a></li>
-      <li><a href="#">Outerwear</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-      <li><a href="#">Support</a></li>
-    </ul>
-  </div>
-
-  <main>
-    <section id="cart-items">
-      <!-- Cart items will be populated here -->
-    </section>
-
-    <div class="cart-total">
-      <p>Total: $<span id="total-price">0.00</span></p>
-      <a href="checkout.html" class="checkout-btn">Checkout</a>
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">X</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cart.html" id="cart-icon">🛒 Cart</a></li>
+            <li><a href="#">Shirts</a></li>
+            <li><a href="#">Shorts</a></li>
+            <li><a href="#">Outerwear</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
     </div>
-  </main>
 
-  <script>
+    <main>
+        <section id="cart-items">
+            <!-- Cart items will be populated here -->
+        </section>
+
+        <div class="cart-total">
+            <p>Total: $<span id="total-price">0.00</span></p>
+            <a href="checkout.html" class="checkout-btn">Checkout</a>
+        </div>
+    </main>
+
+    <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-      const cartItemList = document.getElementById("cart-items");
-      let totalPrice = 0;
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const cartItemList = document.getElementById("cart-items");
+        let totalPrice = 0;
 
-      if (cartItems.length === 0) {
-        cartItemList.innerHTML = "<p>Your cart is empty.</p>";
-      } else {
-        cartItems.forEach(item => {
-          const cartItemElement = document.createElement("div");
-          cartItemElement.classList.add("cart-item");
-          totalPrice += item.price * item.quantity;
+        // Size-based price modifiers
+        const sizePriceModifiers = {
+            "XS": 0,
+            "S": 0,
+            "M": 5,
+            "L": 10,
+            "XL": 15,
+            "XXL": 20
+        };
 
-          cartItemElement.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-            <div class="cart-item-details">
-              <h3>${item.name}</h3>
-              <p>Size: ${item.size || 'N/A'}</p>
-              <p>Quantity: ${item.quantity}</p>
-              <p>$${item.price}</p>
-            </div>
-            <button class="remove-from-cart" data-name="${item.name}" data-size="${item.size}">Remove</button>
-          `;
+        if (cartItems.length === 0) {
+            cartItemList.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            cartItems.forEach(item => {
+                const sizeModifier = sizePriceModifiers[item.size] || 0;
+                const itemTotalPrice = (item.price + sizeModifier) * item.quantity;
+                totalPrice += itemTotalPrice;
 
-          cartItemList.appendChild(cartItemElement);
-        });
+                const cartItemElement = document.createElement("div");
+                cartItemElement.classList.add("cart-item");
 
-        document.getElementById("total-price").textContent = totalPrice.toFixed(2);
+                cartItemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <h3>${item.name}</h3>
+                        <p>Size: ${item.size || 'N/A'}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Base Price: $${item.price.toFixed(2)}</p>
+                        <p>Size Modifier: +$${sizeModifier.toFixed(2)}</p>
+                        <p>Total: $${itemTotalPrice.toFixed(2)}</p>
+                    </div>
+                    <button class="remove-from-cart" data-name="${item.name}" data-size="${item.size}">Remove</button>
+                `;
 
-        // Remove item from cart functionality
-        const removeButtons = document.querySelectorAll(".remove-from-cart");
-        removeButtons.forEach(button => {
-          button.addEventListener("click", () => {
-            const itemName = button.getAttribute("data-name");
-            const itemSize = button.getAttribute("data-size");
-            removeItemFromCart(itemName, itemSize);
-          });
-        });
-      }
+                cartItemList.appendChild(cartItemElement);
+            });
 
-      function removeItemFromCart(itemName, itemSize) {
-        const updatedCartItems = cartItems.filter(item => !(item.name === itemName && item.size === itemSize));
-        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-        window.location.reload();
-      }
+            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+
+            const removeButtons = document.querySelectorAll(".remove-from-cart");
+            removeButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const itemName = button.getAttribute("data-name");
+                    const itemSize = button.getAttribute("data-size");
+                    removeItemFromCart(itemName, itemSize);
+                });
+            });
+        }
+
+        function removeItemFromCart(name, size) {
+            const updatedCartItems = cartItems.filter(item => !(item.name === name && item.size === size));
+            localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+            window.location.reload();
+        }
     });
 
-    // Sidebar toggle functionality
     function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      sidebar.classList.toggle("active");
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
     }
-  </script>
+    </script>
 </body>
 </html>
