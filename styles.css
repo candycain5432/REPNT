@@ -258,7 +258,7 @@ nav ul li a {
     margin-bottom: 5px;
 }
 
-.remove-from-cart {
+.remove-btn {
     background-color: #e74c3c;
     color: white;
     padding: 5px 10px;
@@ -268,7 +268,7 @@ nav ul li a {
     cursor: pointer;
 }
 
-.remove-from-cart:hover {
+.remove-btn:hover {
     background-color: #c0392b;
 }
 
@@ -291,6 +291,8 @@ nav ul li a {
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
+    cursor: pointer;
+    border: none;
 }
 
 .checkout-btn:hover {

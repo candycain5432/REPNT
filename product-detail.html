@@ -36,10 +36,9 @@
     <main>
         <section id="product-details" class="product-detail">
             <div class="product-image">
-               
                 <img src="" alt="Product Image" id="main-image">
             </div>
-            
+
             <div class="product-image">
                 <div class="small-images">
                     <img src="" alt="Small Image 1" class="small-image" onclick="changeImage(this)">
@@ -48,22 +47,23 @@
                     <img src="" alt="Small Image 4" class="small-image" onclick="changeImage(this)">
                 </div>
 
-            <div class="product-info">
-                <h3 id="product-name">Product Name</h3>
-                <p id="product-price">$0.00</p>
+                <div class="product-info">
+                    <h3 id="product-name">Product Name</h3>
+                    <p id="product-price">$0.00</p>
 
-                <label for="size">Size:</label>
-                <select id="size">
-                    <option value="Small">Small</option>
-                    <option value="Medium" selected>Medium</option>
-                    <option value="Large">Large</option>
-                    <option value="XL">XL</option>
-                </select>
+                    <label for="size">Size:</label>
+                    <select id="size">
+                        <option value="Small">Small</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="XL">XL</option>
+                    </select>
 
-                <label for="quantity">Quantity: </label>
-                <input type="number" id="quantity" value="1" min="1">
+                    <label for="quantity">Quantity: </label>
+                    <input type="number" id="quantity" value="1" min="1">
 
-                <button id="add-to-cart-btn">Add to Cart</button>
+                    <button id="add-to-cart-btn">Add to Cart</button>
+                </div>
             </div>
         </section>
     </main>
@@ -80,10 +80,16 @@
             4: { name: 'More Shirt', price: 55, images: ['https://i.postimg.cc/L6GC7cgp/76020-EBR.jpg', 'https://i.postimg.cc/XNZcBx0t/download.png', 'https://i.postimg.cc/XNZcBx0t/download.png'] }
         };
 
-        const product = productData[productId];
+        const sizePriceModifiers = {
+            Small: 0,
+            Medium: 5,
+            Large: 10,
+            XL: 15
+        };
 
+        const product = productData[productId];
         document.getElementById('product-name').textContent = product.name;
-        document.getElementById('product-price').textContent = `$${product.price}`;
+        document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
         document.getElementById('main-image').src = product.images[0];
 
         const smallImages = document.querySelectorAll('.small-image');
@@ -94,17 +100,20 @@
         document.getElementById('add-to-cart-btn').addEventListener('click', () => {
             const quantity = parseInt(document.getElementById('quantity').value);
             const size = document.getElementById('size').value;
+            const modifier = sizePriceModifiers[size] || 0;
 
             const cartItem = {
                 name: product.name,
-                price: product.price,
+                basePrice: product.price,
+                price: product.price + modifier,
+                sizeModifier: modifier,
                 image: product.images[0],
                 quantity: quantity,
                 size: size
             };
 
             let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            const existingItem = cartItems.find(item => item.name === product.name && item.size === size);
+            const existingItem = cartItems.find(item => item.name === cartItem.name && item.size === cartItem.size);
 
             if (existingItem) {
                 existingItem.quantity += quantity;
@@ -122,8 +131,7 @@
     }
 
     function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("active");
+        document.getElementById("sidebar").classList.toggle("active");
     }
     </script>
 </body>
