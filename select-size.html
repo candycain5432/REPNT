@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: "Helvetica Neue", sans-serif;
+          background-color: #111;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-height: 100vh;
+        }
+    
+        header {
+          width: 100%;
+          padding: 1rem 2rem;
+          background-color: #000;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+    
+        .logo {
+          font-size: 1.5rem;
+          font-weight: bold;
+          letter-spacing: 2px;
+        }
+    
+        nav ul {
+          list-style: none;
+          display: flex;
+          gap: 1.5rem;
+        }
+    
+        nav ul li a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: 500;
+        }
+    
+        main {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem;
+        }
+    
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+          text-align: center;
+        }
+    
+        .size-selection {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 1.5rem;
+          width: 100%;
+          max-width: 500px;
+        }
+    
+        .size-selection button {
+          padding: 1rem 1.5rem;
+          font-size: 1rem;
+          font-weight: bold;
+          color: #000;
+          background-color: #fff;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+    
+        .size-selection button:hover {
+          background-color: #f0f0f0;
+          transform: translateY(-3px);
+          box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+        }
+    
+        @media (max-width: 500px) {
+          h2 {
+            font-size: 1.5rem;
+          }
+    
+          .size-selection button {
+            font-size: 0.9rem;
+          }
+        }
+      </style>
+</head>
+<body>
+    <header>
+        <div class="logo">REPNT. Clothing</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+            </ul>
+        </nav>
+        <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">X</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Shirts</a></li>
+            <li><a href="#">Shorts</a></li>
+            <li><a href="#">Outerwear</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <h2>Select Your Size</h2>
+        <div id="size-buttons" class="size-selection">
+            <button onclick="redirectToCheckout('Small')">Small</button>
+            <button onclick="redirectToCheckout('Medium')">Medium</button>
+            <button onclick="redirectToCheckout('Large')">Large</button>
+            <button onclick="redirectToCheckout('XL')">XL</button>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+        
+        function redirectToCheckout(size) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+        
+            // Stripe links per product and size
+            const stripeLinks = {
+                1: { // Easter Tour ‘26
+                    Small: "https://buy.stripe.com/test_111_easter_s",
+                    Medium: "https://buy.stripe.com/test_111_easter_m",
+                    Large: "https://buy.stripe.com/test_111_easter_l",
+                    XL: "https://buy.stripe.com/test_111_easter_xl"
+                },
+                2: { // The Judgment Tee
+                    Small: "https://buy.stripe.com/test_222_judgment_s",
+                    Medium: "https://buy.stripe.com/test_222_judgment_m",
+                    Large: "https://buy.stripe.com/test_222_judgment_l",
+                    XL: "https://buy.stripe.com/test_222_judgment_xl"
+                },
+                // Add more products here as needed
+            };
+        
+            const productLinks = stripeLinks[productId];
+            if (!productLinks) {
+                alert("Invalid product.");
+                return;
+            }
+        
+            const checkoutUrl = productLinks[size];
+            if (!checkoutUrl) {
+                alert("No checkout link available for this size.");
+                return;
+            }
+        
+            window.location.href = checkoutUrl;
+        }
+        </script>
+        
+</body>
+</html>
