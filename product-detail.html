@@ -6,7 +6,209 @@
   <title>Product Details</title>
   <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
-  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e1e; /* dark gray background */
+      color: #fff;
+    }
+    
+    /* Header / Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000; /* black nav */
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    #more-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 60%;
+      max-width: 300px;
+      height: 100%;
+      background-color: #111;
+      transition: right 0.3s ease-in-out;
+      padding: 2rem;
+      z-index: 1000;
+    }
+    
+    .sidebar.active {
+      right: 0;
+    }
+    
+    .close-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      float: right;
+      cursor: pointer;
+    }
+    
+    .sidebar ul {
+      margin-top: 2rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    
+    /* Product Detail Section */
+    .product-detail {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+}
+    
+    .product-image {
+      text-align: center;
+    }
+    
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    
+    .small-images {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .small-image {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    
+    .small-image:hover {
+      border: 2px solid #ccc;
+    }
+    
+    .product-info {
+      text-align: center;
+    }
+    
+    .product-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-info p {
+      font-size: 1.4rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    #buy-now-btn {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    #buy-now-btn:hover {
+      background-color: #f0f0f0;
+          transform: translateY(-3px);
+          box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Description Section */
+    .product-description {
+      margin-top: 2rem;
+      background-color: #2a2a2a;
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    /* Responsive Layout */
+    
+/* Tablet/Desktop override */
+@media (min-width: 768px) {
+  .product-detail {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .main-image {
+    width: 300px;
+    max-width: 100%;
+  }
+
+  .small-images img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .product-info {
+    text-align: left;
+    padding: 1rem;
+  }
+}
+  </style>
 </head>
 <body>
   <header>
@@ -24,21 +226,18 @@
     <button class="close-btn" onclick="toggleSidebar()">X</button>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="#">Shirts</a></li>
-      <li><a href="#">Shorts</a></li>
-      <li><a href="#">Outerwear</a></li>
+      <li><a href="shirts.html">Shirts</a></li>
+      <li><a href="shorts.html">Shorts</a></li>
+      <li><a href="outerwear.html">Outerwear</a></li>
       <li><a href="about-us.html">About Us</a></li>
-      <li><a href="#">Support</a></li>
+      <li><a href="support.html">Support</a></li>
     </ul>
   </div>
 
   <main>
     <section id="product-details" class="product-detail">
       <div class="product-image">
-        <img src="" alt="Product Image" id="main-image">
-      </div>
-
-      <div class="product-image">
+        <img src="" alt="Product Image" id="main-image" class="main-image">
         <div class="small-images">
           <img src="" alt="Small Image 1" class="small-image" onclick="changeImage(this)">
           <img src="" alt="Small Image 2" class="small-image" onclick="changeImage(this)">
@@ -51,6 +250,7 @@
         <h3 id="product-name">Product Name</h3>
         <p id="product-price">$0.00</p>
         <button id="buy-now-btn">Buy Now</button>
+        <p id="product-description" class="product-description"></p>
       </div>
     </section>
   </main>
@@ -72,6 +272,7 @@
         1: {
           name: 'Easter Tour ‘26',
           price: 34.99,
+          description: 'Celebrate the message of resurrection and purpose with the exclusive Easter Tour ‘26 tee. Clean design, bold faith.',
           images: [
             'https://i.postimg.cc/P5Jzms5C/Flat-Front.jpg',
             'https://i.postimg.cc/65Yf25ts/Flat-Back.jpg',
@@ -82,6 +283,7 @@
         2: {
           name: 'The Judgment Tee',
           price: 27.99,
+          description: 'Inspired by Revelation, this shirt is a bold reminder that truth always stands. Wear it loud. Live it louder.',
           images: [
             'https://i.postimg.cc/prRRMfL3/Front.jpg',
             'https://i.postimg.cc/d0Zq2QfN/Back.jpg',
@@ -92,6 +294,7 @@
         3: {
           name: 'Jacket',
           price: 45,
+          description: 'This heavyweight jacket keeps you warm while standing firm in faith. Minimalist look, maximum purpose.',
           images: [
             'https://i.postimg.cc/ZKWswbRH/MC20113-BLK-web-DSC-7920.webp',
             'https://i.postimg.cc/XNZcBx0t/download.png'
@@ -100,6 +303,7 @@
         4: {
           name: 'More Shirt',
           price: 55,
+          description: 'A premium statement tee crafted for those who know there’s more to life than this world. Designed for purpose.',
           images: [
             'https://i.postimg.cc/L6GC7cgp/76020-EBR.jpg',
             'https://i.postimg.cc/XNZcBx0t/download.png',
@@ -116,6 +320,7 @@
 
       document.getElementById('product-name').textContent = product.name;
       document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById('product-description').textContent = product.description;
       document.getElementById('main-image').src = product.images[0];
 
       const smallImages = document.querySelectorAll('.small-image');
@@ -130,3 +335,12 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

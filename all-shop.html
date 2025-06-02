@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shirts - REPNT</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo">REPNT. Clothing</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#products">Shop</a></li>
+      </ul>
+    </nav>
+    <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
+  </header>
+
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">X</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shirts.html">Shirts</a></li>
+      <li><a href="pants.html">Shorts</a></li>
+      <li><a href="outerwear.html">Outerwear</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="product-grid">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <img src="https://i.postimg.cc/prRRMfL3/Front.jpg" alt="The Judgment Tee">
+        <h3>The Judgment Tee</h3>
+        <p>$27.99</p>
+        <a href="product-detail.html?id=2" class="view-btn">View</a>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="product-card">
+        <img src="https://i.postimg.cc/P5Jzms5C/Flat-Front.jpg" alt="Easter Tour ‘26">
+        <h3>Easter Tour ‘26</h3>
+        <p>$34.99</p>
+        <a href="product-detail.html?id=1" class="view-btn">View</a>
+      </div>
+
+      <!-- Add more shirts here -->
+    </section>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>

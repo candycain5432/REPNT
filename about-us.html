@@ -1,68 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - REPNT. Clothing</title>
-    <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - REPNT. Clothing</title>
+  <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p, .about strong {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .team {
+      margin-top: 3rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 50%;
+      border: 3px solid #444;
+      object-fit: cover;
+      max-width: 160px;
+      height: 160px;
+    }
+
+    .team-member h3 {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    .team-member p {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    .mission, .cta {
+      margin-top: 3rem;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #fff;
+      color: #000;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .team-member img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo">REPNT. Clothing</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#products">Shop</a></li>
+      </ul>
+    </nav>
+    <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
+  </header>
 
-    <header>
-        <div class="logo">REPNT. Clothing</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#products">Shop</a></li> 
-            </ul>
-        </nav>
-        <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
-    </header>
-    <div id="sidebar" class="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">X</button> <!-- Close Button -->
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Shirts</a></li>
-            <li><a href="#">Shorts</a></li>
-            <li><a href="#">Outerwear</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="#">Support</a></li>
-            
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">X</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shirts.html">Shirts</a></li>
+      <li><a href="shorts.html">Shorts</a></li>
+      <li><a href="outerwear.html">Outerwear</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </div>
 
-        </ul>
-    </div>
+  <main>
+    <section class="about">
+      <h1>About Us</h1>
+      <strong>Welcome to REPNT. Clothing.</strong>
+      <p>This isn’t just fashion—it’s faith in motion.</p>
+      <p>REPNT is a Christian streetwear brand built to represent truth, purpose, and bold belief. Every piece we drop is designed to make a statement—about who you are and who you live for. We believe in turning heads, not just with style, but with the message of Christ.</p>
+      <p>Whether you're in the city, at church, or just living life, wear your faith loud. This is more than clothing. It’s a calling.</p>
+    </section>
 
-    <main>
-        <section class="about">
-            <h1>About Us</h1>
-            <strong>Welcome to REPNT. Clothing.</strong>
-            <p>This isn’t just fashion—it’s faith in motion.</p>
-            <p>REPNT is a Christian streetwear brand built to represent truth, purpose, and bold belief. Every piece we drop is designed to make a statement—about who you are and who you live for. We believe in turning heads, not just with style, but with the message of Christ.</p>
-            <p>Whether you're in the city, at church, or just living life, wear your faith loud. This is more than clothing. It’s a calling.</p>
-            <p>Thanks for being part of the REPNT movement.</p>
-        </section>
-    </main>
+    <section class="team">
+      <h2>Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://i.postimg.cc/zBHzgy1z/person1.jpg" alt="Developer 1">
+          <h3>John D.</h3>
+          <p>Founder / Creative Director</p>
+        </div>
+        <div class="team-member">
+          <img src="https://i.postimg.cc/XNz6Dh3m/person2.jpg" alt="Developer 2">
+          <h3>Elijah M.</h3>
+          <p>Lead Developer</p>
+        </div>
+        <div class="team-member">
+          <img src="https://i.postimg.cc/JzY4s7DG/person3.jpg" alt="Developer 3">
+          <h3>Maya A.</h3>
+          <p>Brand Designer</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="mission">
+      <h2>Our Mission</h2>
+      <p>To spread the message of Christ boldly through modern streetwear. We aim to build a movement of believers who wear their faith with pride and use fashion as a tool for testimony.</p>
+    </section>
+
+    <section class="cta">
+      <h2>Join Us</h2>
+      <p>Want to be a part of the REPNT journey? We're always looking for bold believers to help grow the movement.</p>
+      <a href="#">Contact Us</a>
+    </section>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
-
-<script>
-    // Sidebar toggle functionality
-    const moreBtn = document.getElementById("more-btn");
-    const sidebar = document.getElementById("sidebar");
-    const closeBtn = document.getElementById("close-btn");
-
-    moreBtn.addEventListener("click", () => {
-        sidebar.style.width = "250px";  // Open sidebar
-    });
-
-    closeBtn.addEventListener("click", () => {
-        sidebar.style.width = "0";  // Close sidebar
-    });
-
-    function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("active");
-}
-</script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support - REPNT. Clothing</title>
+  <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    main {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .support-info {
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .support-info a {
+      color: #fff;
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    .section {
+      background-color: #2a2a2a;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      color: #ddd;
+    }
+
+    .section h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">REPNT. Clothing</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#products">Shop</a></li>
+      </ul>
+    </nav>
+    <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
+  </header>
+
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">X</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shirts.html">Shirts</a></li>
+      <li><a href="shorts.html">Shorts</a></li>
+      <li><a href="outerwear.html">Outerwear</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <h1>Need Help?</h1>
+    <div class="support-info">
+      <p>We’re here for you. If you have any questions, feedback, or issues with your order, email us directly:</p>
+      <p><a href="mailto:repntapparel@gmail.com">repntapparel@gmail.com</a></p>
+    </div>
+
+    <div class="section">
+      <h3>Return Policy</h3>
+      <p>Returns are accepted within 14 days of delivery. Items must be unworn, unwashed, and in original condition. To begin a return, email us with your order number and reason for return.</p>
+      <p>Customers are responsible for return shipping costs unless the item arrived damaged or incorrect.</p>
+    </div>
+
+    <div class="section">
+      <h3>Shipping Info</h3>
+      <p>Orders are processed within 2–3 business days. Standard shipping typically takes 5–7 business days within the U.S.</p>
+      <p>You’ll receive a confirmation email with tracking once your order ships.</p>
+      <p>We currently ship to the U.S. only.</p>
+    </div>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
