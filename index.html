@@ -1,149 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7SYEZX8R8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z7SYEZX8R8');
-</script>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5207436309891713"
-     crossorigin="anonymous"></script>
-     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REPNT. Clothing</title>
-    <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loading...</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%; overflow: hidden;
+      display: flex; justify-content: center; align-items: center;
+      background: black;
+    }
+    video, img {
+      max-width: 100%; max-height: 100%;
+    }
+  </style>
 </head>
 <body>
+  <video id="intro" autoplay muted playsinline>
+    <source src="RepntLogo.mp4" type="video/mp4" />
+    <!-- fallback for gif -->
+    <!-- <img src="your-manim-animation.gif" alt="Loading Animation" /> -->
+  </video>
 
-    <header>
-        <div class="logo">REPNT. Clothing</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="all-shop.html">Catalog</a></li>
-                
-            </ul>
-        </nav>
-        <button id="more-btn" onclick="toggleSidebar()">&#x2022;&#x2022;&#x2022;</button>
-    </header>
-
-    <div id="sidebar" class="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">X</button> <!-- Close Button -->
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="all-shop.html">Catalog</a></li>
-            <li><a href="shirts.html">Shirts</a></li>
-            <li><a href="pants.html">Pants</a></li>
-            <li><a href="outerwear.html">Outerwear</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="Social.html">Socials</a></li>
-            
-
-        </ul>
-    </div>
-
-    <main>
-        <section class="hero">
-            <div style="background-color: rgba(0, 0, 0, 0.8); color: white; padding: 40px; border-radius: 10px; color: white;">
-  <h1>Live the Highest Life</h1>
-  <p>Shop the latest in Christian apparel and accessories.</p>
-  <br>
-  <a href="all-shop.html" class="btn">Shop Now</a>
-        </div>
-            </section>
-        
-
-        <section id="products" class="featured-products">
-            <h2>Featured Products</h2>
-            <div class="product-grid">
-                <div class="product">
-                    <img src="https://i.postimg.cc/65Yf25ts/Flat-Back.jpg" alt="Baseball Shirt">
-                    <h3>Easter Tour ‘26</h3>
-                    <p>$34.99</p>
-                    <a href="product-detail.html?id=1" class="more-btn">More</a>
-                </div>
-                <div class="product">
-                    <img src="https://i.postimg.cc/d0Zq2QfN/Back.jpg" alt="Baseball Cap">
-                    <h3>The Judgment Tee</h3>
-                    <p>$27.99</p>
-                    <a href="product-detail.html?id=2" class="more-btn">More</a>
-                </div>
-                <div class="product">
-                    <img src="https://i.postimg.cc/ZKWswbRH/MC20113-BLK-web-DSC-7920.webp" alt="Baseball Jacket">
-                    <h3>Jacket</h3>
-                    <p>$45.00</p>
-                    <a href="product-detail.html?id=3" class="more-btn">More</a>
-                </div>
-                <div class="product">
-                    <img src="https://i.postimg.cc/L6GC7cgp/76020-EBR.jpg" alt="Baseball Bat">
-                    <h3>More Shirt</h3>
-                    <p>$55.00</p>
-                    <a href="product-detail.html?id=4" class="more-btn">More</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+  <script>
+    const video = document.getElementById('intro');
+    video.onended = () => {
+      window.location.href = 'main-page.html'; // Redirect after animation ends
+    };
+  </script>
 </body>
 </html>
-
-<script>document.addEventListener("DOMContentLoaded", () => {
-    let cartCount = 0;
-    const cartDisplay = document.getElementById("cart-icon");
-    const addToCartButtons = document.querySelectorAll(".add-to-cart");
-
-    addToCartButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            cartCount++;
-            cartDisplay.innerHTML = `🛒 Cart (${cartCount})`;
-        });
-    });
-});
-</script>
-
-
-<script>document.addEventListener("DOMContentLoaded", () => {
-    // Cart handling
-    let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
-    const cartIcon = document.getElementById("cart-icon");
-
-    const updateCartCount = () => {
-        cartIcon.innerHTML = `🛒 Cart`;
-        localStorage.setItem("cartCount", cartCount); // Save cart count to localStorage
-    };
-
-    // Add to cart functionality
-    const addToCartButtons = document.querySelectorAll(".add-to-cart");
-    addToCartButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            cartCount++;
-            updateCartCount();
-        });
-    });
-
-    updateCartCount();
-
-    // Sidebar toggle functionality
-    const moreBtn = document.getElementById("more-btn");
-    const sidebar = document.getElementById("sidebar");
-    const closeBtn = document.getElementById("close-btn");
-
-    moreBtn.addEventListener("click", () => {
-        sidebar.style.width = "250px";  // Open sidebar
-    });
-
-    closeBtn.addEventListener("click", () => {
-        sidebar.style.width = "0";  // Close sidebar
-    });
-});
-</script>
