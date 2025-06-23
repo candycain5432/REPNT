@@ -232,6 +232,16 @@
     cursor: pointer;
     transition: transform 0.3s ease;
   }
+
+
+   nav {
+        display: none;
+        padding: 50px;
+    }
+
+    #more-btn {
+        display: block;
+    }
 }
 
   </style>
@@ -257,6 +267,7 @@
       <li><a href="Pants.html">Pants</a></li>
       <li><a href="outerwear.html">Outerwear</a></li>
       <li><a href="Phone-Cases.html">Phone Cases</a></li>
+      <li><a href="Other.html">Other Items</a></li>
       <li><a href="about-us.html">About Us</a></li>
       <li><a href="support.html">Support</a></li>
       <li><a href="Social.html">Socials</a></li>
@@ -307,7 +318,8 @@
             'https://i.postimg.cc/65Yf25ts/Flat-Back.jpg',
             'https://i.postimg.cc/YqpxCmcf/Person-1-Front.jpg',
             'https://i.postimg.cc/DwNQ6jSB/On-Person-Back.jpg'
-          ]
+          ],
+          redirectPage: 'select-size.html'
         },
         2: {
           name: 'The Judgment Tee',
@@ -318,7 +330,8 @@
             'https://i.postimg.cc/d0Zq2QfN/Back.jpg',
             'https://i.postimg.cc/QtLj0GG8/Person-4-Context.jpg',
             'https://i.postimg.cc/V6jmhGmj/Person-1-Back.jpg'
-          ]
+          ],
+          redirectPage: 'select-size.html'
         },
         3: {
           name: 'Jacket',
@@ -327,7 +340,8 @@
           images: [
             'https://i.postimg.cc/ZKWswbRH/MC20113-BLK-web-DSC-7920.webp',
             'https://i.postimg.cc/XNZcBx0t/download.png'
-          ]
+          ],
+          redirectPage: 'select-size.html'
         },
         4: {
           name: 'More Shirt',
@@ -337,7 +351,8 @@
             'https://i.postimg.cc/L6GC7cgp/76020-EBR.jpg',
             'https://i.postimg.cc/XNZcBx0t/download.png',
             'https://i.postimg.cc/XNZcBx0t/download.png'
-          ]
+          ],
+          redirectPage: 'select-size.html'
         },
 
         5: {
@@ -349,7 +364,21 @@
             'https://i.postimg.cc/RZsKTNGL/Context-1-i-Phone-15-Pro-Max.jpg',
             'https://i.postimg.cc/RVvt5cDT/i-Phone-16-Plus.jpg',
             'https://i.postimg.cc/xdNJygX9/i-Phone-16-Pro-Max-1.jpg'
-          ]
+          ],
+          redirectPage: 'select-phone.html'
+        },
+        
+        6: {
+          name: 'AirPod Case',
+          price: 9.99,
+          description: "Protect your AirPods in style with this sleek and vibrant AirPods Case Cover. Designed from premium TPU material, it offers great protection against bumps and scratches, allowing you to experience worry-free use. The exceptionally smooth surface feels great to the touch, while the bright and crisp colors add a splash of personality to your everyday tech. Perfect for adults who want to keep their gadgets secure, this cover is ideal for those who appreciate a blend of functionality and style. It's an excellent gift for holidays, birthdays, or special occasions. With a convenient carabiner hook, you can easily attach it to bags or belt loops, ensuring that your AirPods are always within reach. Elevate your tech accessories with this stylish case—your AirPods deserve it!",
+          images: [
+            'https://i.postimg.cc/wBV1kjpk/Context-1-Air-Pods-Navy.jpg',
+            'https://i.postimg.cc/Sxc2JG13/Back-Air-Pods-Navy.jpg',
+            'https://i.postimg.cc/8CDFWrq5/Context-3-Air-Pods-Navy.jpg',
+            'https://i.postimg.cc/6qG6F9Dg/Context-4-Air-Pods-Navy.jpg'
+          ],
+          redirectPage: 'https://buy.stripe.com/test_222_judgment_s'
         }
       };
 
@@ -370,11 +399,7 @@
       });
 
      document.getElementById('buy-now-btn').addEventListener('click', () => {
-  if (productId == '5','6') {
-  window.location.href = `select-phone.html?id=${productId}`;
-} else {
-  window.location.href = `select-size.html?id=${productId}`;
-}
+  window.location.href = `${product.redirectPage}?id=${productId}`;
 });
 
     });
