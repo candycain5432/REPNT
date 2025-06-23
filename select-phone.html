@@ -139,10 +139,10 @@
     <main>
         <h2>Select Your Size</h2>
         <div id="size-buttons" class="size-selection">
-            <button onclick="redirectToCheckout('Small')">Small</button>
-            <button onclick="redirectToCheckout('Medium')">Medium</button>
-            <button onclick="redirectToCheckout('Large')">Large</button>
-            <button onclick="redirectToCheckout('XL')">XL</button>
+            <button onclick="redirectToCheckout('Iphone15')">Iphone 15</button>
+            <button onclick="redirectToCheckout('Iphone16')">Iphone 16</button>
+            <button onclick="redirectToCheckout('Iphone13')">Iphone 13</button>
+            <button onclick="redirectToCheckout('Iphone14')">Iphone 14</button>
         </div>
     </main>
 
@@ -158,17 +158,18 @@
         
             // Stripe links per product and size
             const stripeLinks = {
-                1: { // Easter Tour ‘26
-                    Small: "https://buy.stripe.com/test_111_easter_s",
-                    Medium: "https://buy.stripe.com/test_111_easter_m",
-                    Large: "https://buy.stripe.com/test_111_easter_l",
-                    XL: "https://buy.stripe.com/test_111_easter_xl"
+                5: { // Phone Case
+                  Iphone15: "https://buy.stripe.com/test_111_easter_s",
+                  Iphone16: "https://buy.stripe.com/test_111_easter_m",
+                  Iphone13: "https://buy.stripe.com/test_111_easter_l",
+                  Iphone14: "https://buy.stripe.com/test_111_easter_xl"
                 },
+
                 2: { // The Judgment Tee
-                    Small: "https://buy.stripe.com/test_222_judgment_s",
-                    Medium: "https://buy.stripe.com/test_222_judgment_m",
-                    Large: "https://buy.stripe.com/test_222_judgment_l",
-                    XL: "https://buy.stripe.com/test_222_judgment_xl"
+                  Iphone15: "https://buy.stripe.com/test_111_easter_s",
+                  Iphone16: "https://buy.stripe.com/test_111_easter_m",
+                  Iphone13: "https://buy.stripe.com/test_111_easter_l",
+                  Iphone14: "https://buy.stripe.com/test_111_easter_xl"
                 },
                 // Add more products here as needed
             };
