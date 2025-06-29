@@ -1,64 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7SYEZX8R8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z7SYEZX8R8');
-</script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product Details - REPNT. Clothing</title>
   <link rel="icon" href="https://i.postimg.cc/BQVjR0tx/R.jpg" type="image/x-icon">
-  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #1e1e1e; /* dark gray background */
+      background-color: #1e1e1e;
       color: #fff;
     }
-    
-    /* Header / Navbar */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #000; /* black nav */
+      background-color: #000;
       padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 999;
     }
-    
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
     }
-    
     nav ul {
       display: flex;
       gap: 1.5rem;
       list-style: none;
     }
-    
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
     }
-    
     #more-btn {
       background: none;
       border: none;
@@ -66,8 +43,6 @@
       font-size: 1.8rem;
       cursor: pointer;
     }
-    
-    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0;
@@ -80,11 +55,9 @@
       padding: 2rem;
       z-index: 1000;
     }
-    
     .sidebar.active {
       right: 0;
     }
-    
     .close-btn {
       background: none;
       border: none;
@@ -93,7 +66,6 @@
       float: right;
       cursor: pointer;
     }
-    
     .sidebar ul {
       margin-top: 2rem;
       list-style: none;
@@ -101,42 +73,30 @@
       flex-direction: column;
       gap: 1.2rem;
     }
-    
     .sidebar a {
       color: #fff;
       text-decoration: none;
       font-size: 1.1rem;
     }
-    
-    /* Product Detail Section */
+
     .product-detail {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 20px;
-    justify-content: center; 
-    flex-direction: column;
-    align-items: center;
-}
-    
-    .product-image {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      align-items: center;
     }
-    
     .product-image img {
       max-width: 100%;
       height: auto;
       border-radius: 12px;
     }
-    
     .small-images {
       display: flex;
       justify-content: center;
       gap: 1rem;
       margin-top: 1rem;
     }
-    
     .small-image {
       width: 60px;
       height: 60px;
@@ -145,26 +105,21 @@
       cursor: pointer;
       border: 2px solid transparent;
     }
-    
     .small-image:hover {
       border: 2px solid #ccc;
     }
-    
     .product-info {
       text-align: center;
     }
-    
     .product-info h3 {
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
     }
-    
     .product-info p {
       font-size: 1.4rem;
       color: #ddd;
       margin-bottom: 1rem;
     }
-    
     #buy-now-btn {
       background-color: #fff;
       color: #000;
@@ -176,14 +131,11 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    
     #buy-now-btn:hover {
       background-color: #f0f0f0;
-          transform: translateY(-3px);
-          box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
     }
-    
-    /* Description Section */
     .product-description {
       margin-top: 2rem;
       background-color: #2a2a2a;
@@ -192,58 +144,14 @@
       font-size: 1rem;
       line-height: 1.6;
     }
-    
-    /* Responsive Layout */
-    
-/* Tablet/Desktop override */
-@media (max-width: 768px) {
-  .product-detail {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
 
-  .product-image {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .product-image img#main-image {
-    width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-
-  .small-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .small-image {
-    width: 60px;
-    height: 60px;
-    border: #222 solid 2px;
-    object-fit: cover;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-
-   nav {
-        display: none;
-        padding: 50px;
+    @media (max-width: 768px) {
+      .product-image img {
+        max-height: 350px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
     }
-
-    #more-btn {
-        display: block;
-    }
-}
-
   </style>
 </head>
 <body>
@@ -267,7 +175,6 @@
       <li><a href="Pants.html">Pants</a></li>
       <li><a href="outerwear.html">Outerwear</a></li>
       <li><a href="Phone-Cases.html">Phone Cases</a></li>
-      <li><a href="Other.html">Other Items</a></li>
       <li><a href="about-us.html">About Us</a></li>
       <li><a href="support.html">Support</a></li>
       <li><a href="Social.html">Socials</a></li>
@@ -277,15 +184,14 @@
   <main>
     <section id="product-details" class="product-detail">
       <div class="product-image">
-        <img src="" alt="Product Image" id="main-image" class="main-image">
+        <img src="" alt="Product Image" id="main-image">
         <div class="small-images">
-          <img src="" alt="Small Image 1" class="small-image" onclick="changeImage(this)">
-          <img src="" alt="Small Image 2" class="small-image" onclick="changeImage(this)">
-          <img src="" alt="Small Image 3" class="small-image" onclick="changeImage(this)">
-          <img src="" alt="Small Image 4" class="small-image" onclick="changeImage(this)">
+          <img src="" alt="Small 1" class="small-image" onclick="changeImage(this)">
+          <img src="" alt="Small 2" class="small-image" onclick="changeImage(this)">
+          <img src="" alt="Small 3" class="small-image" onclick="changeImage(this)">
+          <img src="" alt="Small 4" class="small-image" onclick="changeImage(this)">
         </div>
       </div>
-
       <div class="product-info">
         <h3 id="product-name">Product Name</h3>
         <p id="product-price">$0.00</p>
@@ -300,118 +206,47 @@
       document.getElementById("sidebar").classList.toggle("active");
     }
 
-    function changeImage(image) {
-      document.getElementById('main-image').src = image.src;
+    function changeImage(img) {
+      document.getElementById('main-image').src = img.src;
     }
 
     document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);
       const productId = urlParams.get('id');
 
-      const productData = {
-        1: {
-          name: 'Easter Tour ‘26',
-          price: 34.99,
-          description: 'Celebrate the message of resurrection and purpose with the exclusive Easter Tour ‘26 tee. Clean design, bold faith.',
-          images: [
-            'https://i.postimg.cc/P5Jzms5C/Flat-Front.jpg',
-            'https://i.postimg.cc/65Yf25ts/Flat-Back.jpg',
-            'https://i.postimg.cc/YqpxCmcf/Person-1-Front.jpg',
-            'https://i.postimg.cc/DwNQ6jSB/On-Person-Back.jpg'
-          ],
-          redirectPage: 'select-size.html'
-        },
-        2: {
-          name: 'The Judgment Tee',
-          price: 27.99,
-          description: 'Inspired by Revelation, this shirt is a bold reminder that truth always stands. Wear it loud. Live it louder.',
-          images: [
-            'https://i.postimg.cc/prRRMfL3/Front.jpg',
-            'https://i.postimg.cc/d0Zq2QfN/Back.jpg',
-            'https://i.postimg.cc/QtLj0GG8/Person-4-Context.jpg',
-            'https://i.postimg.cc/V6jmhGmj/Person-1-Back.jpg'
-          ],
-          redirectPage: 'select-size.html'
-        },
-        3: {
-          name: 'Jacket',
-          price: 45,
-          description: 'This heavyweight jacket keeps you warm while standing firm in faith. Minimalist look, maximum purpose.',
-          images: [
-            'https://i.postimg.cc/ZKWswbRH/MC20113-BLK-web-DSC-7920.webp',
-            'https://i.postimg.cc/XNZcBx0t/download.png'
-          ],
-          redirectPage: 'select-size.html'
-        },
-        4: {
-          name: 'More Shirt',
-          price: 55,
-          description: 'A premium statement tee crafted for those who know there’s more to life than this world. Designed for purpose.',
-          images: [
-            'https://i.postimg.cc/L6GC7cgp/76020-EBR.jpg',
-            'https://i.postimg.cc/XNZcBx0t/download.png',
-            'https://i.postimg.cc/XNZcBx0t/download.png'
-          ],
-          redirectPage: 'select-size.html'
-        },
+      fetch('product-detail.json')
+        .then(res => res.json())
+        .then(productData => {
+          const product = productData[productId];
+          if (!product) {
+            document.querySelector('.product-info').innerHTML = '<p>Product not found.</p>';
+            return;
+          }
 
-        5: {
-          name: 'Phil 4:13 Case',
-          price: 18.99,
-          description: "*You will pick your phone type on the next page* Introducing our sleek and stylish Slim Phone Cases, designed to seamlessly blend protection with elegance. These cases offer a smooth, minimalist aesthetic, making them perfect for anyone looking to enhance their device without compromising on style. The glossy finish showcases vibrant designs, adding a personal touch to your everyday tech. Ideal for students, professionals, or anyone who loves to express their individuality, these cases fit perfectly in both casual and formal settings. Celebrate special occasions like birthdays, graduations, or holidays by gifting a thoughtful, protective accessory that reflects the recipient's personality. Elevate your phone's look while keeping it safe with this chic addition to your collection.",
-          images: [
-            'https://i.postimg.cc/LsJfQ2bK/Context-2-i-Phone-13.jpg',
-            'https://i.postimg.cc/RZsKTNGL/Context-1-i-Phone-15-Pro-Max.jpg',
-            'https://i.postimg.cc/RVvt5cDT/i-Phone-16-Plus.jpg',
-            'https://i.postimg.cc/xdNJygX9/i-Phone-16-Pro-Max-1.jpg'
-          ],
-          redirectPage: 'select-phone.html'
-        },
-        
-        6: {
-          name: 'The Fearless Case',
-          price: 9.99,
-          description: "Protect your AirPods in style with this sleek and vibrant AirPods Case Cover. Designed from premium TPU material, it offers great protection against bumps and scratches, allowing you to experience worry-free use. The exceptionally smooth surface feels great to the touch, while the bright and crisp colors add a splash of personality to your everyday tech. Perfect for adults who want to keep their gadgets secure, this cover is ideal for those who appreciate a blend of functionality and style. It's an excellent gift for holidays, birthdays, or special occasions. With a convenient carabiner hook, you can easily attach it to bags or belt loops, ensuring that your AirPods are always within reach. Elevate your tech accessories with this stylish case—your AirPods deserve it!",
-          images: [
-            'https://i.postimg.cc/wBV1kjpk/Context-1-Air-Pods-Navy.jpg',
-            'https://i.postimg.cc/Sxc2JG13/Back-Air-Pods-Navy.jpg',
-            'https://i.postimg.cc/8CDFWrq5/Context-3-Air-Pods-Navy.jpg',
-            'https://i.postimg.cc/6qG6F9Dg/Context-4-Air-Pods-Navy.jpg'
-          ],
-          redirectPage: 'https://buy.stripe.com/test_222_judgment_s'
-        }
-      };
+          document.getElementById('product-name').textContent = product.name;
+          document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+          document.getElementById('product-description').textContent = product.description;
+          document.getElementById('main-image').src = product.images[0];
 
-      const product = productData[productId];
-      if (!product) {
-        document.querySelector('.product-info').innerHTML = '<p>Product not found.</p>';
-        return;
-      }
+          const smallImages = document.querySelectorAll('.small-image');
+          smallImages.forEach((img, index) => {
+            img.src = product.images[index] || '';
+          });
 
-      document.getElementById('product-name').textContent = product.name;
-      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
-      document.getElementById('product-description').textContent = product.description;
-      document.getElementById('main-image').src = product.images[0];
-
-      const smallImages = document.querySelectorAll('.small-image');
-      smallImages.forEach((img, index) => {
-        img.src = product.images[index] || '';
-      });
-
-     document.getElementById('buy-now-btn').addEventListener('click', () => {
-  window.location.href = `${product.redirectPage}?id=${productId}`;
-});
-
+          document.getElementById('buy-now-btn').addEventListener('click', () => {
+            const url = product.redirectPage;
+            if (url.startsWith("http")) {
+              window.location.href = url;
+            } else {
+              window.location.href = `${url}?id=${productId}`;
+            }
+          });
+        })
+        .catch(err => {
+          console.error("Error loading product data:", err);
+          document.querySelector('.product-info').innerHTML = '<p>Error loading product.</p>';
+        });
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

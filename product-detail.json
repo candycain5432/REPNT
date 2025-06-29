@@ -1,0 +1,71 @@
+{
+  "1": {
+    "name": "Easter Tour ‘26",
+    "price": 34.99,
+    "description": "Celebrate the message of resurrection and purpose with the exclusive Easter Tour ‘26 tee. Clean design, bold faith.",
+    "images": [
+      "https://i.postimg.cc/65mKDmMW/Flat-Front-Black-stitching.jpg",
+      "https://i.postimg.cc/65Yf25ts/Flat-Back.jpg",
+      "https://i.postimg.cc/Vs4mF6Mb/Person-1-Front-Black-stitching.jpg",
+      "https://i.postimg.cc/DwNQ6jSB/On-Person-Back.jpg"
+    ],
+    "redirectPage": "select-size.html"
+  },
+  "2": {
+    "name": "The Judgment Tee",
+    "price": 27.99,
+    "description": "Inspired by Revelation, this shirt is a bold reminder that truth always stands. Wear it loud. Live it louder.",
+    "images": [
+      "https://i.postimg.cc/ZRxZ2YM2/Front-Dark-Heather-Grey.jpg",
+      "https://i.postimg.cc/d0Zq2QfN/Back.jpg",
+      "https://i.postimg.cc/KvzFp2rp/Person-4-Context-Dark-Heather-Grey.jpg",
+      "https://i.postimg.cc/V6jmhGmj/Person-1-Back.jpg"
+    ],
+    "redirectPage": "select-size.html"
+  },
+  "3": {
+    "name": "Jacket",
+    "price": 45,
+    "description": "This heavyweight jacket keeps you warm while standing firm in faith. Minimalist look, maximum purpose.",
+    "images": [
+      "https://i.postimg.cc/ZKWswbRH/MC20113-BLK-web-DSC-7920.webp",
+      "https://i.postimg.cc/XNZcBx0t/download.png"
+    ],
+    "redirectPage": "select-size.html"
+  },
+  "4": {
+    "name": "More Shirt",
+    "price": 55,
+    "description": "A premium statement tee crafted for those who know there’s more to life than this world. Designed for purpose.",
+    "images": [
+      "https://i.postimg.cc/L6GC7cgp/76020-EBR.jpg",
+      "https://i.postimg.cc/XNZcBx0t/download.png",
+      "https://i.postimg.cc/XNZcBx0t/download.png"
+    ],
+    "redirectPage": "select-size.html"
+  },
+  "5": {
+    "name": "Phil 4:13 Case",
+    "price": 18.99,
+    "description": "*You will pick your phone type on the next page* Introducing our sleek and stylish Slim Phone Cases, designed to seamlessly blend protection with elegance. These cases offer a smooth, minimalist aesthetic, making them perfect for anyone looking to enhance their device without compromising on style. The glossy finish showcases vibrant designs, adding a personal touch to your everyday tech. Ideal for students, professionals, or anyone who loves to express their individuality, these cases fit perfectly in both casual and formal settings. Celebrate special occasions like birthdays, graduations, or holidays by gifting a thoughtful, protective accessory that reflects the recipient's personality. Elevate your phone's look while keeping it safe with this chic addition to your collection.",
+    "images": [
+      "https://i.postimg.cc/LsJfQ2bK/Context-2-i-Phone-13.jpg",
+      "https://i.postimg.cc/RZsKTNGL/Context-1-i-Phone-15-Pro-Max.jpg",
+      "https://i.postimg.cc/RVvt5cDT/i-Phone-16-Plus.jpg",
+      "https://i.postimg.cc/xdNJygX9/i-Phone-16-Pro-Max-1.jpg"
+    ],
+    "redirectPage": "select-phone.html"
+  },
+  "6": {
+    "name": "The Fearless Case",
+    "price": 9.99,
+    "description": "Protect your AirPods in style with this sleek and vibrant AirPods Case Cover. Designed from premium TPU material, it offers great protection against bumps and scratches, allowing you to experience worry-free use. The exceptionally smooth surface feels great to the touch, while the bright and crisp colors add a splash of personality to your everyday tech. Perfect for adults who want to keep their gadgets secure, this cover is ideal for those who appreciate a blend of functionality and style. It's an excellent gift for holidays, birthdays, or special occasions. With a convenient carabiner hook, you can easily attach it to bags or belt loops, ensuring that your AirPods are always within reach. Elevate your tech accessories with this stylish case—your AirPods deserve it!",
+    "images": [
+      "https://i.postimg.cc/wBV1kjpk/Context-1-Air-Pods-Navy.jpg",
+      "https://i.postimg.cc/Sxc2JG13/Back-Air-Pods-Navy.jpg",
+      "https://i.postimg.cc/8CDFWrq5/Context-3-Air-Pods-Navy.jpg",
+      "https://i.postimg.cc/6qG6F9Dg/Context-4-Air-Pods-Navy.jpg"
+    ],
+    "redirectPage": "https://buy.stripe.com/test_222_judgment_s"
+  }
+}
