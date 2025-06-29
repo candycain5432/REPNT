@@ -30,6 +30,8 @@ header {
     letter-spacing: 2px;
 }
 
+
+
 nav {
     display: flex;
     justify-content: center;
@@ -81,8 +83,8 @@ nav ul li a {
 }
 
 .hero .btn {
-    background-color: #e74c3c;
-    color: white;
+    background-color: white;
+    color:black;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 4px;
@@ -91,7 +93,7 @@ nav ul li a {
 }
 
 .hero .btn:hover {
-    background-color: #c0392b;
+    opacity: 50%;
 }
 
 /* Featured Products Section */
